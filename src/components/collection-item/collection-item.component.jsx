@@ -15,7 +15,7 @@ const CollectionItem = ({item, addItem}) => {
            }}/>
       <div className='collection-footer'>
         <span className='name'>{name}</span>
-        <span className='price'>{price* DOLLAR_TO_INR}</span>
+        <span className='price'>&#x20B9;{price* DOLLAR_TO_INR}</span>
       </div>
       <CustomButton onClick={() => addItem(item)} inverted>
         Add to Cart
