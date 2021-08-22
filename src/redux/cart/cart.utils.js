@@ -28,3 +28,5 @@ export const removeItemFromCart = (cartItems, cartItemToRemove) => {
     quantity: cartItem.quantity - 1
   } : cartItem)
 }
+
+export const DOLLAR_TO_INR = 70;
