@@ -11,7 +11,7 @@ import {store, persistor} from './redux/store';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <BrowserRouter basename={process.env.PUBLIC_URL}> {/* <HashRouter> For git pages deployment*/}
         <PersistGate persistor={persistor}>
           <App/>
         </PersistGate>
