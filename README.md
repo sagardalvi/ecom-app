@@ -64,9 +64,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 ### Heroku Deployment
 Steps to Deploy on heroku
 1. Sign Up on Heroku and install heroku cli
-2. Run `heroku create <appname> --buildpack https://github.com/mars/create-react-app-buildpack.git`
-3. Run `git push heroku main` - Only main or master branch should be deploy
-4. If everything works fine then site will be hosted on `https://<appname>.herokuapp.com/`
+2. Login using `heroku login`
+3. Run `heroku create <appname> --buildpack https://github.com/mars/create-react-app-buildpack.git`
+4. Run `git push heroku main` - Only main or master branch should be deploy
+5. If everything works fine then site will be hosted on `https://<appname>.herokuapp.com/`
 
 ### `npm run build` fails to minify
 
