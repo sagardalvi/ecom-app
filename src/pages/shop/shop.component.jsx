@@ -9,6 +9,8 @@ import {fetchCollectionsStartAsync, updateCollection} from '../../redux/shop/sho
 import {connect} from 'react-redux';
 import WithSpinner from '../../components/with-spinner/with-spinner.component';
 import {selectIsCollectionFetching, selectIsCollectionLoaded} from '../../redux/shop/shop.selectors';
+import CollectionsOverviewContainer from '../../components/collections-overview/collections-overview.container';
+import CollectionPageContainer from '../collection/collection.container';
 
 const CollectionOverviewWithSpinner = WithSpinner(CollectionsOverview);
 const CollectionPageWithSpinner = WithSpinner(CollectionPage);
@@ -51,10 +53,14 @@ class ShopPage extends React.Component {
     return (
       <div className='shop-page'>
         <Switch>
+          {/*
           <Route exact path={`${match.path}`}
                  render={(props) => (<CollectionOverviewWithSpinner isLoading={loading} {...props}/>)}/>
           <Route path={`${match.path}/:collectionId`}
                  render={(props) => (<CollectionPageWithSpinner isLoading={!isCollectionsLoaded} {...props}/>)}/>
+          */}
+          <Route exact path={`${match.path}`} component={CollectionsOverviewContainer}/>
+          <Route path={`${match.path}/:collectionId`} component={CollectionPageContainer}/>
         </Switch>
       </div>
     )
