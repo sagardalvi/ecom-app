@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import {createStructuredSelector} from 'reselect';
 import './shop.styles.scss';
@@ -8,31 +8,26 @@ import {selectIsCollectionFetching, selectIsCollectionLoaded} from '../../redux/
 import CollectionsOverviewContainer from '../../components/collections-overview/collections-overview.container';
 import CollectionPageContainer from '../collection/collection.container';
 
-class ShopPage extends React.Component {
+const ShopPage = ({fetchCollectionsStart, match, loading, isCollectionsLoaded}) => {
 
-  componentDidMount() {
-    const {fetchCollectionsStart} = this.props;
+  useEffect(() => {
     fetchCollectionsStart();
-  }
+  },[fetchCollectionsStart]);
 
-  render() {
-    const {match, loading, isCollectionsLoaded} = this.props;
-    // const {loading} = this.state;
-    return (
-      <div className='shop-page'>
-        <Switch>
-          {/*
+  return (
+    <div className='shop-page'>
+      <Switch>
+        {/*
           <Route exact path={`${match.path}`}
                  render={(props) => (<CollectionOverviewWithSpinner isLoading={loading} {...props}/>)}/>
           <Route path={`${match.path}/:collectionId`}
                  render={(props) => (<CollectionPageWithSpinner isLoading={!isCollectionsLoaded} {...props}/>)}/>
           */}
-          <Route exact path={`${match.path}`} component={CollectionsOverviewContainer}/>
-          <Route path={`${match.path}/:collectionId`} component={CollectionPageContainer}/>
-        </Switch>
-      </div>
-    )
-  }
+        <Route exact path={`${match.path}`} component={CollectionsOverviewContainer}/>
+        <Route path={`${match.path}/:collectionId`} component={CollectionPageContainer}/>
+      </Switch>
+    </div>
+  )
 
 }
 
